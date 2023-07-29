@@ -717,6 +717,7 @@ void D3D12Multithreading::OnUpdate()
 // Render the scene.
 void D3D12Multithreading::OnRender()
 {
+    mTimeBaseLoopExecuter.TimeAdjustment();
     try
     {
         BeginFrame();

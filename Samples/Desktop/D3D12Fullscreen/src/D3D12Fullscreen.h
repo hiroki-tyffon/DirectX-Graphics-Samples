@@ -12,6 +12,7 @@
 #pragma once
 
 #include "DXSample.h"
+#include "TimeBaseLoopExecuter.h"
 
 using namespace DirectX;
 
@@ -26,6 +27,7 @@ using Microsoft::WRL::ComPtr;
 class D3D12Fullscreen : public DXSample
 {
 public:
+    TimeBaseLoopExecuter mTimeBaseLoopExecuter;
     D3D12Fullscreen(UINT width, UINT height, std::wstring name);
 
 protected:

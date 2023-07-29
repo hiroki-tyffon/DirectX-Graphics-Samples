@@ -15,6 +15,7 @@
 #include "Camera.h"
 #include "StepTimer.h"
 #include "SquidRoom.h"
+#include "TimeBaseLoopExecuter.h"
 
 using namespace DirectX;
 
@@ -65,6 +66,8 @@ public:
     virtual void OnKeyUp(UINT8 key);
 
 private:
+    TimeBaseLoopExecuter mTimeBaseLoopExecuter;
+
     struct InputState
     {
         bool rightArrowPressed;

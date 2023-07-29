@@ -550,6 +550,7 @@ void D3D12Fullscreen::OnUpdate()
 // Render the scene.
 void D3D12Fullscreen::OnRender()
 {
+    mTimeBaseLoopExecuter.TimeAdjustment();
     if (m_windowVisible)
     {
         try
@@ -570,9 +571,10 @@ void D3D12Fullscreen::OnRender()
             // However, this flag cannot be used if the app is in fullscreen mode as a
             // result of calling SetFullscreenState.
             UINT presentFlags = (m_tearingSupport && m_windowedMode) ? DXGI_PRESENT_ALLOW_TEARING : 0;
+            presentFlags = DXGI_PRESENT_ALLOW_TEARING | DXGI_PRESENT_DO_NOT_WAIT;
 
             // Present the frame.
-            ThrowIfFailed(m_swapChain->Present(0, presentFlags));
+            ThrowIfFailed(m_swapChain->Present( 0, presentFlags));
 
             MoveToNextFrame();
         }
